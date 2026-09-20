@@ -25,7 +25,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build Gplay Release
-        run: ./gradlew assembleGplayRelease
+        run: ./gradlew assembleGplayRelease -Dorg.gradle.parallel=false -Dorg.gradle.workers.max=1
         env:
           SIGNING_KEYSTORE_PATH: ${{ github.workspace }}/app/element-release.jks
           SIGNING_KEYSTORE_PASSWORD: ${{ secrets.SIGNING_KEYSTORE_PASSWORD }}
