@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "297500302093",
+    "project_id": "element-private-push",
+    "storage_bucket": "element-private-push.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297500302093:android:82eb35cdd7a1009a806e44",
+        "android_client_info": {
+          "package_name": "im.vector.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuQiPcEECkHAkO1hurhNiwbLiccKhBTYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
