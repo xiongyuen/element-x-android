@@ -13,7 +13,7 @@ object FirebaseConfig {
      * It is the push gateway for firebase.
      * Note: pusher_http_url should have path '/_matrix/push/v1/notify' -->
      */
-    const val PUSHER_HTTP_URL: String = "https://chat.wangrr.dpdns.org:8443/_matrix/push/v1/notify"
+    const val PUSHER_HTTP_URL: String = "http://sygnal:6000/_matrix/push/v1/notify"
 
     const val INDEX = 0
     const val NAME = "Firebase"
