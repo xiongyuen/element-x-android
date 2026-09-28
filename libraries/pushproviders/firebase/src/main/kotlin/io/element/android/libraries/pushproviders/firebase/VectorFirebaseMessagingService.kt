@@ -20,6 +20,7 @@ import io.element.android.libraries.pushproviders.api.PushHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import android.content.Intent
 
 private val loggerTag = LoggerTag("VectorFirebaseMessagingService", LoggerTag.PushLoggerTag)
 
@@ -45,6 +46,15 @@ class VectorFirebaseMessagingService : FirebaseMessagingService() {
         }
     }
 
+    override fun handleIntent(intent: Intent) {
+        // Workaround for Firebase SDK bug (google/firebase-android-sdk#8281):
+        // AnalyticsConnector is absent in builds without firebase-analytics, and
+        // MessagingAnalytics.logToScion() crashes with NoClassDefFoundError when the
+        // "google.c.a.e" extra is present. Stripping it prevents the crash.
+        intent.removeExtra("google.c.a.e")
+        super.handleIntent(intent)
+    }
+    
     override fun onMessageReceived(message: RemoteMessage) {
         Timber.tag(loggerTag.value).w("New Firebase message. Priority: ${message.priority}/${message.originalPriority}")
 
